@@ -1,32 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 
-function Book({ pages, currentIndex, onNext, onPrev, response, onRespond, onYes, nudge, isLocked }) {
-  const [startX, setStartX] = useState(null)
+function Book({ pages, currentIndex, response, onRespond, onYes, nudge, isLocked }) {
   const [dragDelta, setDragDelta] = useState(0)
   const [noPosition, setNoPosition] = useState(null)
   const finaleRef = useRef(null)
   const noButtonRef = useRef(null)
-
-  const handlePointerDown = (event) => {
-    if (isLocked) return
-    setStartX(event.clientX)
-  }
-
-  const handlePointerUp = (event) => {
-    if (isLocked) return
-    if (startX === null) return
-    const delta = startX - event.clientX
-    if (delta > 50) onNext()
-    if (delta < -50) onPrev()
-    setStartX(null)
-    setDragDelta(0)
-  }
-
-  const handlePointerMove = (event) => {
-    if (isLocked) return
-    if (startX === null) return
-    setDragDelta(event.clientX - startX)
-  }
 
   const shuffleNoButton = () => {
     if (isLocked) return
@@ -58,14 +36,7 @@ function Book({ pages, currentIndex, onNext, onPrev, response, onRespond, onYes,
   }, [currentIndex, pages.length, finaleIndex])
 
   return (
-    <section
-      className="book"
-      aria-live="polite"
-      onPointerDown={handlePointerDown}
-      onPointerMove={handlePointerMove}
-      onPointerUp={handlePointerUp}
-      onPointerLeave={handlePointerUp}
-    >
+    <section className="book" aria-live="polite">
       <div className={`cover${currentIndex > 0 ? ' open' : ''}`}>
         <div className="cover-face">
           <h1 className="cover-title">

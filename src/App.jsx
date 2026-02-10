@@ -191,8 +191,6 @@ You are my heart, my love, and my forever ❤️`,
         <Book
           pages={pages}
           currentIndex={currentIndex}
-          onNext={flipForward}
-          onPrev={flipBack}
           response={response}
           onRespond={setResponse}
           onYes={handleYes}
