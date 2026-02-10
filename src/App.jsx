@@ -30,7 +30,7 @@ function App() {
           title: 'The Little Things',
           compact: true,
           text: `My love ❤️
-I still remember the day we met on your street and the night of our first kiss. How enchanting eyes were is something I can never forget.
+I still remember the day we met on your street and the night of our first kiss. How enchanting your eyes were is something I can never forget.
 Whenever I’m with you, I feel complete and at peace. I keep imagining our future together happy, married, and building a beautiful family.
 I pray to God for long life and wisdom to love and care for His precious daughter, Elo Marvelous Edafeasume.`,
           media: {
